@@ -1,0 +1,15 @@
+{
+  "name": "robobai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:client": "cd docker && docker build -t client . -f Dockerfile.client",
+    "start:client": "docker run -it --rm -d -p 8080:80 --name frontend client",
+    "build:server": "cd docker && docker build -t server . -f Dockerfile.server",
+    "start:server": "docker run -it --rm -d -p 5656:5656 --name backend server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

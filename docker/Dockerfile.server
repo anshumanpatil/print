@@ -1,0 +1,33 @@
+FROM nginx:alpine as build-step
+WORKDIR /home
+RUN echo "---------------------Installing Git-----------------------------"
+RUN apk update && apk upgrade && \
+    apk add --no-cache bash git openssh
+RUN echo "---------------------Installing Node-----------------------------"
+RUN apk add --update nodejs nodejs-npm
+RUN echo "---------------------Cloning Repo-------------------------------"
+RUN git clone https://github.com/anshumanpatil/robobai.git /home
+
+WORKDIR /home/server
+RUN echo "---------------------Installing Node Modules-----------------------"
+RUN npm install --verbose
+RUN echo "---------------------Building Node Project-----------------------"
+RUN npm run build --verbose
+RUN echo "---------------------Done For NodeJS-----------------------"
+
+WORKDIR /home/client/dist
+
+
+FROM nginx:1.17.1-alpine
+RUN apk update && apk upgrade && \
+    apk add --update nodejs nodejs-npm
+WORKDIR /usr/share/nginx/html
+COPY --from=build-step /home/server .
+EXPOSE  5656
+CMD [ "node", "dist/main.js" ]
+
+# --------------------------------------------------------------------------------------------------------
+# docker build -t server .
+# docker run -it --rm -d -p 5656:5656 --name backend server
+# docker exec -it backend /bin/sh
+# --------------------------------------------------------------------------------------------------------

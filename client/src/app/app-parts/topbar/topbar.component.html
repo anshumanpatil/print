@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4" style="border-bottom: solid 1px rgba(0, 0, 0, 0.1);">
+
+    <!-- Sidebar Toggle (Topbar) -->
+    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+        <i class="fa fa-bars"></i>
+    </button>
+
+    <!-- Topbar Search -->
+    <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+        <div class="input-group">
+            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                aria-label="Search" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                    <i class="fas fa-search fa-sm"></i>
+                </button>
+            </div>
+        </div>
+    </form> -->
+
+    <!-- Topbar Navbar -->
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown no-arrow" style="cursor: pointer;">
+            <a class="nav-link dropdown-toggle" [matMenuTriggerFor]="menu">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Demo User</span>
+                <img class="img-profile rounded-circle" src="data:image/png;base64,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">
+            </a>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                  <mat-icon>play_arrow</mat-icon>
+                  <span>Logout</span>
+                </button>
+              </mat-menu>
+        </li>
+
+    </ul>
+
+</nav>
