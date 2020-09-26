@@ -7,6 +7,7 @@ import { AppService } from '../../services/app/app.service';
 
 import { UserModule } from '../../modules/user/user.module';
 import { ProductsModule } from '../products/products.module';
+import { MachinesModule } from '../machines/machines.module';
 
 
 @Module({
@@ -14,7 +15,8 @@ import { ProductsModule } from '../products/products.module';
     MongooseModule.forRoot('mongodb://anshumanpradippatil1506:yajju1506@ds149998.mlab.com:49998/nivalocal'),
     TypeOrmModule.forRoot(),
     UserModule,
-    ProductsModule
+    ProductsModule,
+    MachinesModule
   ],
   controllers: [AppController],
   providers: [AppService],

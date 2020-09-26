@@ -1,0 +1,4 @@
+nest g module modules/machines
+nest g service services/machines
+nest g controller controllers/machines
+nest g class dbo/machines/machine.entity

@@ -6,7 +6,7 @@ RUN apk update && apk upgrade && \
 RUN echo "---------------------Installing Node-----------------------------"
 RUN apk add --update nodejs nodejs-npm
 RUN echo "---------------------Cloning Repo-------------------------------"
-RUN git clone https://github.com/anshumanpatil/robobai.git /home
+RUN git clone https://github.com/anshumanpatil/print.git /home
 
 WORKDIR /home/server
 RUN echo "---------------------Installing Node Modules-----------------------"
