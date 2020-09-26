@@ -1,0 +1,7 @@
+.mat-expansion-panel {
+    box-shadow: none;
+}
+
+.mat-action-row {
+    justify-content: unset;
+}
