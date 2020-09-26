@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { ProductDTO } from '../dto/product.dto';
-import { ProductUpdateDTO } from '../dto/product-update.dto';
-import { Product } from '../interfaces/product.interface';
+import { ProductDTO } from '../../dto/product.dto';
+import { ProductUpdateDTO } from '../../dto/product-update.dto';
+import { Product } from '../../interfaces/product.interface';
 
 
 @Injectable()
-export class AppService {
+export class ProductsService {
   constructor(@InjectModel('Product') private readonly productModel: Model<Product>) { }
   async getList(): Promise<Product[]> {
     const products = await this.productModel.find().exec();

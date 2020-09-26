@@ -1,12 +1,13 @@
 import { Controller, Get, Post, Put, Delete, Res, Body, HttpStatus, NotFoundException } from '@nestjs/common';
-import { AppService } from '../services/app.service';
-import { ProductDTO } from '../dto/product.dto';
-import { ProductUpdateDTO } from '../dto/product-update.dto';
-@Controller()
-export class AppController {
-  constructor(private readonly appService: AppService) { }
+import { ProductsService } from '../../services/products/products.service';
+import { ProductDTO } from '../../dto/product.dto';
+import { ProductUpdateDTO } from '../../dto/product-update.dto';
 
-  @Get('list')
+@Controller()
+export class ProductsController {
+  constructor(private readonly appService: ProductsService) { }
+
+  @Get('product')
   async getList(): Promise<any> {
     return this.appService.getList();
   }

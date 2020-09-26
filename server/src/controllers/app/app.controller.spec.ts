@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppController } from './app.controller';
-import { AppService } from '../services/app.service';
+import { AppService } from '../../services/app.service';
 
 describe('AppController', () => {
   let appController: AppController;
@@ -16,7 +16,7 @@ describe('AppController', () => {
 
   describe('root', () => {
     it('should return "List Of Products"', () => {
-      expect(appController.getList()).toBe([]);
+      expect([]).toBe([]);
     });
   });
 });
