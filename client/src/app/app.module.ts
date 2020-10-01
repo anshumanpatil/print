@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularMaterialModule } from "./angular-material.module";
 
-
-import { DashboardModule } from './dashboard/dashboard.module';
 import { AppComponent } from './main/app.component';
 import { LoginComponent } from './login/login.component';
 
@@ -25,8 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     AngularMaterialModule,
     HttpClientModule,
-    AppRoutingModule,
-    DashboardModule
+    AppRoutingModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
