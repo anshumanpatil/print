@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { ProductService } from './services/product.service';
+import { LoginService } from './services/login/login.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -25,7 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [ProductService],
+  providers: [ProductService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
