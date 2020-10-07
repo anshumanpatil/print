@@ -7,10 +7,10 @@ async function bootstrap() {
   app.enableCors();
 
   const options = new DocumentBuilder()
-    .setTitle('Robobai Assignment')
-    .setDescription('The Robobai App API description')
+    .setTitle('Print Application')
+    .setDescription('The Print Application API description')
     .setVersion('1.0')
-    .addTag('Robobai')
+    .addTag('Print Application')
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('document', app, document);

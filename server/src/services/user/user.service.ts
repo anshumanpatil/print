@@ -12,10 +12,16 @@ export class UsersService {
         return await this.usersRepository.find();
     }
 
-    async getUser(_id: number): Promise<User[]> {
-        return await this.usersRepository.find({
-            select: ["username", "password", "isActive"],
-            where: [{ "id": _id }]
+    async getUser(user: User): Promise<User> {
+        return await this.usersRepository.findOne({
+            where: { "username": user['username'], "password": user['password'] }
+        });
+    }
+
+    async login(user: User): Promise<User> {
+        return await this.usersRepository.findOneOrFail({
+            select: ["id", "isActive"],
+            where: [{ "username": user['username'], "password": user['password'] }]
         });
     }
 
