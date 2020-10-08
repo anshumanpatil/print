@@ -12,9 +12,14 @@ export class UsersController {
         return this.service.getUser(params.id);
     }
 
-    @Post()
-    create(@Body() user: User) {
-        return this.service.createUser(user);
+    @HttpCode(201)
+    @Post('register')
+    create(@Body() user: any) {
+        let __user = user;
+        if (user.hasOwnProperty('body')) {
+            __user = user.body;
+        }
+        return this.service.createUser(__user);
     }
 
     @HttpCode(200)

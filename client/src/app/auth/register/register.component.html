@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row justify-content-center">
+        
+        <div class="col-xl-10 col-lg-12 col-md-9">
+
+            <div class="card o-hidden my-5" style="border: solid 1px rgba(0, 0, 0, 0.1);">
+                <div class="card-body p-0">
+                    <div class="row">
+                        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">New User Register</h1>
+                                </div>
+                                <div class="form-group" >
+                                    <input type="text" class="form-control form-control-user" id="exampleInputEmail"
+                                        aria-describedby="emailHelp" placeholder="Enter Username..."
+                                        [(ngModel)]="username" name="username">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-user" name="password"
+                                        id="exampleInputPassword" placeholder="Password" [(ngModel)]="password">
+                                </div>
+                                <button class="btn btn-primary btn-user btn-block" (click)="Register($event)" *ngIf="!showCaptcha">
+                                    Register</button>
+                                    <div class="row justify-content-center">
+                                        <app-capcha *ngIf="showCaptcha"></app-capcha>
+                                    </div>
+                                    <div class="row" *ngIf="!showCaptcha">
+                                        <div class="col-lg-6">
+                                            <button class="btn btn-link" (click)="Login($event)">
+                                                Login</button>
+                                    </div>
+                                    <div class="col-lg-6 text-right">
+                                        <button class="btn btn-link" (click)="Forgot($event)">
+                                            Forgot Password</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

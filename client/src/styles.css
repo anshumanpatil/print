@@ -10805,7 +10805,8 @@ a:focus {
 }
 
 .bg-login-image {
-  background: url("https://source.unsplash.com/K4mSJ7kc0As/600x800");
+  /* background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Gutenberg.jpg/472px-Gutenberg.jpg"); */
+  background-image: url('assets/img/gutenberg.jpg');
   background-position: center;
   background-size: cover;
 }

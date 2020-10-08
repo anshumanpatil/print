@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router"
-import { LoginService } from "../services/login/login.service";
-import { AuthService } from "../auth/auth.service";
+import { Router } from "@angular/router";
+import { LoginService } from "../../services/login/login.service";
+import { AuthService } from "../service/auth.service";
 import * as bcrypt from "bcryptjs";
 import { catchError } from 'rxjs/operators';
 
@@ -16,6 +16,15 @@ export class LoginComponent implements OnInit {
   username: string = "";
   password: string = "";
   constructor(private router: Router, private loginService: LoginService, private authService: AuthService) { }
+  Register(){
+    localStorage.clear();
+    this.router.navigate(['/register']);
+  }
+  
+  Forgot(){
+    localStorage.clear();
+    this.router.navigate(['/forgot']);
+  }
 
   goHome(event) {
     const Protector = () => new Promise((resolve, reject) => bcrypt.hash(this.password, this.loginService.salter(this.username), (err, hash) => { err ? reject(err) : resolve(hash) }));
@@ -34,6 +43,7 @@ export class LoginComponent implements OnInit {
         err => this.router.navigate(['/']));
     })
   }
+
   ngOnInit(): void {
   }
 }

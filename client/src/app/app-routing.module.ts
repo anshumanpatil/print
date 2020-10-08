@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { ForgotComponent } from './auth/forgot/forgot.component';
 import { NotFoundComponent } from './not-found-component/not-found-component.component';
-import { AuthGuard } from './auth/auth.guard';
+import { AuthGuard } from './auth/guard/auth.guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'forgot', component: ForgotComponent },
   {
     path: 'home',
     loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
