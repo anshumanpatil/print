@@ -6,10 +6,11 @@ import { RegisterComponent } from './auth/register/register.component';
 import { ForgotComponent } from './auth/forgot/forgot.component';
 import { NotFoundComponent } from './not-found-component/not-found-component.component';
 import { AuthGuard } from './auth/guard/auth.guard';
+import { ReloginGuard } from './auth/relogin-guard/relogin.guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, canActivate: [ReloginGuard] },
   { path: 'register', component: RegisterComponent },
   { path: 'forgot', component: ForgotComponent },
   {

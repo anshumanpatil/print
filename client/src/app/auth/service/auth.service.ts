@@ -14,6 +14,14 @@ export class AuthService {
     }
   }
 
+  getTokenStatus(){
+    let status = false;
+    if (localStorage.getItem('token')) {
+      this.isLoggedIn = status = true;
+    }
+    return status;
+  }
+
   sendCaptchaResult(captchaResult: string) {
     this.$captchaResult.next({ captchaResult });
   }

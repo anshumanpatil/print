@@ -16,12 +16,13 @@ export class LoginComponent implements OnInit {
   username: string = "";
   password: string = "";
   constructor(private router: Router, private loginService: LoginService, private authService: AuthService) { }
-  Register(){
+  
+  Register(e){
     localStorage.clear();
     this.router.navigate(['/register']);
   }
   
-  Forgot(){
+  Forgot(e){
     localStorage.clear();
     this.router.navigate(['/forgot']);
   }
