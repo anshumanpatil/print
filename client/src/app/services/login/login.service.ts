@@ -18,8 +18,8 @@ export class LoginService {
     return this.http['post'](this.apiUrl + '/users/login', httpOptions)
   }
 
-  salter() {
-    const seed = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][new Date().getDay()];
+  salter(seed) {
+    //seed = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][new Date().getDay()];
     // Salt must be 16 bytes
     const bytes = [];
     for (let i = 0, l = seed.length; i < l; i++) {

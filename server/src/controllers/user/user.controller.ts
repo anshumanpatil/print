@@ -16,7 +16,7 @@ export class UsersController {
     create(@Body() user: User) {
         return this.service.createUser(user);
     }
-    
+
     @HttpCode(200)
     @Post('login')
     login(@Body() user: any) {

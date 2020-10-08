@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from "./modules/app/app.module";
-
+import { ErrorFilter } from './errors.filter';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors();
@@ -15,7 +15,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('document', app, document);
 
-
+  app.useGlobalFilters(new ErrorFilter())
   await app.listen(5656);
 }
 bootstrap();
